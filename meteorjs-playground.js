@@ -1,23 +1,13 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault("counter", 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get("counter");
-    }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set("counter", Session.get("counter") + 1);
-    }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+  Template.body.helpers({
+      songs: [
+        { title: "I Get Around", url: "https://www.youtube.com/watch?v=YqJAnQTwmJs" },
+        { title: "All Eyez On Me", url: "https://www.youtube.com/watch?v=05PCmqjIeNE" },
+        { title: "Check Out Time", url: "https://www.youtube.com/watch?v=UAI4VJ-M230" },
+        { title: "Only God Can Judge Me", url: "https://www.youtube.com/watch?v=padvnsLUhUM" },
+        { title: "Who Do You Believe In?", url: "https://www.youtube.com/watch?v=_z2nfa1X9Kc" },
+        { title: "Can You Get Away", url: "https://www.youtube.com/watch?v=96LqAdngoCs" },
+        { title: "Troublesome '96", url: "https://www.youtube.com/watch?v=RdX79pwyBII" }
+      ]
+    });
 }
