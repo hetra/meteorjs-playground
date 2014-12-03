@@ -5,8 +5,16 @@
 <body>
   <h1>Welcome to (2Pac)Meteor!</h1>
   {{#each songs}}
-  {{> song}}
+    {{> song}}
   {{/each}}
+  <h2>Add your own</h2>
+  <form class="new-song">
+    <input name="title" type="text" placeholder="Type new song's title" />
+    <br>
+    <input name="url" type="url" placeholder="Type new song's YouTube URL" />
+    <br>
+    <input type="submit" />
+  </form>
 </body>
 
 <template name="song">
