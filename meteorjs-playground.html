@@ -8,6 +8,8 @@
     {{> song}}
   {{/each}}
   <h2>Add your own</h2>
+  {{> loginButtons}}
+  {{#if currentUser}}
   <form class="new-song">
     <input name="title" type="text" placeholder="Type new song's title" />
     <br>
@@ -15,6 +17,7 @@
     <br>
     <input type="submit" />
   </form>
+  {{/if}}
 </body>
 
 <template name="song">

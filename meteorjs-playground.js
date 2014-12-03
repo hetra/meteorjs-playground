@@ -14,10 +14,7 @@ if (Meteor.isClient) {
       var title = event.target.title.value;
       var url = event.target.url.value;
 
-      Songs.insert({
-        title: title,
-        url: url
-      });
+      Meteor.call("addSong", title, url);
 
       // clear the form
       event.target.title.value = "";
@@ -27,4 +24,23 @@ if (Meteor.isClient) {
       return false;
     }
 });
+
+Accounts.ui.config({
+  passwordSignupFields: "USERNAME_ONLY"
+});
+
 }
+
+Meteor.methods({
+  addSong: function(title, url){
+    if(!Meteor.userId()){
+      throw new Meteor.Error("not-authorized");
+    }
+
+  Songs.insert({
+    title: title,
+    url: url
+  });
+
+  }
+});
