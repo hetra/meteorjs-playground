@@ -1,25 +1,46 @@
 <head>
   <title>(2Pac)Meteor</title>
+  <link rel="stylesheet" href="/assets/css/skeleton.css">
+  <link rel="stylesheet" href="/assets/css/normalize.css">
 </head>
 
 <body>
-  <h1>Welcome to (2Pac)Meteor!</h1>
-  {{#each songs}}
-    {{> song}}
-  {{/each}}
-  <h2>Add your own</h2>
-  {{> loginButtons}}
-  {{#if currentUser}}
-  <form class="new-song">
-    <input name="title" type="text" placeholder="Type new song's title" />
-    <br>
-    <input name="url" type="url" placeholder="Type new song's YouTube URL" />
-    <br>
-    <input type="submit" />
-  </form>
-  {{/if}}
+  <div id="container">
+    <div class="row">
+	  <div class="twelve columns">
+        <h1>Welcome to (2Pac)Meteor!</h1>
+		<hr>
+	  </div>
+	</div>
+    {{#each songs}}
+	  <div class="row">
+	    <div class="twelve columns">
+          {{> song}}
+		  <hr>
+	    </div>
+	  </div>
+    {{/each}}
+	<div class="row">
+	  <div class="twelve columns">
+        <h2>Add your own</h2>
+        {{> loginButtons}}
+        {{#if currentUser}}
+        <form class="new-song">
+          <input name="title" type="text" placeholder="Type new song's title" />
+          <br>
+          <input name="url" type="url" placeholder="Type new song's YouTube URL" />
+		  <br>
+          <textarea name="description" placeholder="Describe the new song for the world!"></textarea>
+          <br>
+          <input type="submit" />
+        </form>
+        {{/if}}
+	  </div>
+	</div>
+  </div>
 </body>
 
 <template name="song">
   <h2><a href="{{ url }}" target="_blank" title="{{ title }}">{{ title }}</a></h2>
+  <p>{{ description }}</p>
 </template>
